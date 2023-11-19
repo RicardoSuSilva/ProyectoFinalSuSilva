@@ -2,8 +2,16 @@ let shop = document.getElementById("shop");
 
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
+const products = async() => {
+  const response = await fetch ("productos.json");
+  const productos = await response.json();
+  console.log(productos);
+};
+
+products ();
+
 let generateShop = () => {
-  return (shop.innerHTML = shopItemsData
+  return (shop.innerHTML = productos
     .map((x) => {
       let { id, name, desc, img, price } = x;
       let search = basket.find((y) => y.id === id) || [];

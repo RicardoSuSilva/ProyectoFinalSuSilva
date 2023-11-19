@@ -15,7 +15,7 @@ let generateCartItems = () => {
     return (ShoppingCart.innerHTML = basket
       .map((x) => {
         let { id, item } = x;
-        let search = shopItemsData.find((x) => x.id === id) || [];
+        let search = productos.find((x) => x.id === id) || [];
         let { img, price, name } = search;
         return `
       <div class="cart-item">
@@ -114,7 +114,7 @@ let TotalAmount = () => {
     let amount = basket
       .map((x) => {
         let { id, item } = x;
-        let filterData = shopItemsData.find((x) => x.id === id);
+        let filterData = productos.find((x) => x.id === id);
         return filterData.price * item;
       })
       .reduce((x, y) => x + y, 0);
